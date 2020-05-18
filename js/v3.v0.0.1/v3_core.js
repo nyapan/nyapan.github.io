@@ -61,10 +61,14 @@ export class V3Core extends V3Property {
         (typeof definition.tag == "undefined" ? ".append(tag_div)" : ".append(definition.tag)") + 
         (typeof definition.type == "undefined" ? "" : ".attr(\"type\", definition.type)") + 
         (typeof definition.src == "undefined" ? "" : ".attr(\"src\", definition.src)") + 
+        (typeof definition.href == "undefined" ? "" : ".attr(\"href\", definition.href)") + 
+        (typeof definition.target == "undefined" ? "" : ".attr(\"target\", definition.target)") + 
         (typeof definition.id == "undefined" ? "" : ".attr(\"id\", definition.id)") + 
         (typeof definition.name == "undefined" ? "" : ".attr(\"name\", definition.name)") + 
         (typeof definition.class == "undefined" ? "" : ".attr(\"class\", definition.class)") +
         (typeof definition.style == "undefined" ? "" : ".attr(\"style\", definition.style)") +
+        (typeof definition.width == "undefined" ? "" : ".attr(\"width\", definition.width)") +
+        (typeof definition.height == "undefined" ? "" : ".attr(\"height\", definition.height)") +
         (typeof definition.note == "undefined" ? "" : ".attr(\"title\", definition.note)") + 
         (typeof definition.onclick == "undefined" ? "" : ".attr(\"onclick\", definition.onclick)") +
         (typeof definition.onchange == "undefined" ? "" : ".attr(\"onchange\", definition.onchange)") +
@@ -122,7 +126,7 @@ export class V3Core extends V3Property {
         this.load_definition(this.definition);
 
         this.switch_function(json.definition_list, 4);
-
+        break;
       case 4:
         // データ反映
         if(typeof this.definition.dom_copy_from_id != "undefined" && typeof this.definition.dom_copy_to_id != "undefined" &&
@@ -438,6 +442,13 @@ export class V3Core extends V3Property {
   change_style(target, style_key, style_value){
     d3.select(target).style(style_key, style_value);
 
+  }
+
+  get_iframe_target(target_window_id, target_id){
+    let target_window = document.getElementById(target_window_id);
+//    let target = target_window.contentWindow.document.querySelector("#"+target_id);
+    var target = target_window.contentWindow.document.getElementById(target_id);
+    return target;
   }
 
 }
