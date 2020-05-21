@@ -36,27 +36,40 @@
       "parent": "#gadjet_template_003",
       "text": ""
     },{
-      "note": "target site controlle",
+      "note": "target site DOM",
       "id": "target_site_controlle_001",
       "tag": "div",
       "class": "position-absolute ",
-      "style": "width:150px;height:50px;background-color:#aaaaaa;border:1px solid #000000;cursor:pointer;top:400px;left:5px;",
+      "style": "width:160px;height:30px;background-color:#aaaaaa;border:1px solid #000000;top:400px;left:5px;",
       "conditional": "",
       "parent": "#gadjet_template_003",
       "text_on": true,
-      "text": "画像読み込み",
-      "onclick": "v3.get_iframe_target('target_site', 'select_img_button').click()"
+      "text": "nodelist取得",
+      "onclick": "v3.write_nodeList('gadjet_template_dom', v3.get_nodeList('target_site'))"
     },{
       "note": "target site DOM",
-      "id": "target_site_controlle_dom",
-      "tag": "div",
+      "id": "target_site_controlle_url_input",
+      "tag": "input",
+      "type": "text",
+      "value": "",
       "class": "position-absolute ",
-      "style": "width:150px;height:50px;background-color:#aaaaaa;border:1px solid #000000;top:5px;left:5px;",
+      "style": "width:260px;height:30px;background-color:#aaaaaa;border:1px solid #000000;top:435px;left:5px;",
       "conditional": "",
-      "parent": "#gadjet_template_dom",
+      "parent": "#gadjet_template_003",
       "text_on": true,
-      "text": "画像読み込み",
-      "onclick": "v3.get_iframe_target('target_site', 'select_img_button').click()"
+      "text": "target_site_url"
+    },{
+      "note": "target site DOM",
+      "id": "target_site_controlle_url_button",
+      "tag": "input",
+      "type": "button",
+      "class": "position-absolute ",
+      "style": "width:100px;height:30px;background-color:#aaaaaa;border:1px solid #000000;top:435px;left:265px;",
+      "conditional": "",
+      "parent": "#gadjet_template_003",
+      "text_on": true,
+      "text": "target_site_url_change",
+      "onclick": "document.getElementById('target_site').src = document.getElementById('target_site_controlle_url_input').value;"
     }
   ],
 "gadjet_template": [
@@ -82,16 +95,7 @@
     "note": "ガジェット_remocon_dom",
     "id": "gadjet_template_dom",
     "class": "position-absolute border border-dark p-3 mb-3 ",
-    "style": "height:420px;width:460px;top:5px;left:810px;background-color:#111111;",
-    "conditional": "",
-    "text": "gadjet_template_recode",
-    "parent": "#gadjet_002",
-    "phantom":true
-  },{
-    "note": "ガジェット_remocon_reletion",
-    "id": "gadjet_template_reletion",
-    "class": "position-absolute border border-dark p-3 mb-3 ",
-    "style": "height:200px;width:460px;top:430px;left:810px;background-color:#111111;",
+    "style": "height:625px;width:460px;top:5px;left:810px;background-color:#111111;",
     "conditional": "",
     "text": "gadjet_template_recode",
     "parent": "#gadjet_002",

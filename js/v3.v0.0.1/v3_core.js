@@ -451,4 +451,24 @@ export class V3Core extends V3Property {
     return target;
   }
 
+  /**
+   * ターゲットのノードリストを取得
+   * @param {*} target_window_id 
+   */
+  get_nodeList(target_window_id){
+    let target_element = document.getElementById(target_window_id);
+    return target_element.contentWindow.document.getElementsByTagName("*");
+
+  }
+
+  /**
+   * targetにnodelistを書き出す
+   * @param {*} target 
+   * @param {*} nodelist 
+   */
+  write_nodeList(target, nodelist){
+    for(var nodeIndex = 0; nodeIndex < nodelist.length; nodeIndex++ ){    
+      d3.select("#"+target).append("div").text(nodelist[nodeIndex].tagName + " id=" + nodelist[nodeIndex].id);
+    }
+  }
 }
