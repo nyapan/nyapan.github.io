@@ -29,6 +29,7 @@
       "note": "target site",
       "id": "target_site",
       "tag": "iframe",
+      "sandbox": "allow-same-origin",
       "src": "./index.html",
       "class": "position-absolute ",
       "style": "width:1350px;height:750px;transform-origin:0 0;transform:scale(0.5);top:5px;left:5px;",
@@ -45,7 +46,7 @@
       "parent": "#gadjet_template_003",
       "text_on": true,
       "text": "nodelist取得",
-      "onclick": "v3.write_nodeList('gadjet_template_dom', v3.get_nodeList('target_site'))"
+      "onclick": "v3.write_nodeList('gadjet_template_dom', v3.get_canvas('target_site'))"
     },{
       "note": "target site DOM",
       "id": "target_site_controlle_url_input",

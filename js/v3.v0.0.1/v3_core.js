@@ -21,6 +21,7 @@ export class V3Core extends V3Property {
     this.dragover_target_list = null;
     this.dragover_count = {};
     this.dragover_target_area = null;
+    this.target_canvas = null;
     
 
     // d3でのドラッグイベントは以下を使用する
@@ -69,6 +70,7 @@ export class V3Core extends V3Property {
         (typeof definition.style == "undefined" ? "" : ".attr(\"style\", definition.style)") +
         (typeof definition.width == "undefined" ? "" : ".attr(\"width\", definition.width)") +
         (typeof definition.height == "undefined" ? "" : ".attr(\"height\", definition.height)") +
+//        (typeof definition.sandbox == "undefined" ? "" : ".attr(\"sandbox\", definition.sandbox)") +
         (typeof definition.note == "undefined" ? "" : ".attr(\"title\", definition.note)") + 
         (typeof definition.onclick == "undefined" ? "" : ".attr(\"onclick\", definition.onclick)") +
         (typeof definition.onchange == "undefined" ? "" : ".attr(\"onchange\", definition.onchange)") +
@@ -470,5 +472,11 @@ export class V3Core extends V3Property {
     for(var nodeIndex = 0; nodeIndex < nodelist.length; nodeIndex++ ){    
       d3.select("#"+target).append("div").text(nodelist[nodeIndex].tagName + " id=" + nodelist[nodeIndex].id);
     }
+  }
+
+  get_canvas(target_window_id, target_canvas_id){
+    let target_element = document.getElementById(target_window_id);
+    this.target_canvas = target_element.contentWindow.document.getElementById(target_canvas_id);
+    return this.target_canvas.getContext("2d");
   }
 }
