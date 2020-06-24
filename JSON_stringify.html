@@ -26,10 +26,19 @@ function get_json(){
 	// リクエストをURLに送信
 	request.send();
 }
-
+function get_jsonp(){
+    var script = document.createElement('script');
+    script.src = document.getElementById("url").value;document.getElementById("url").value;
+    window.instaCallbackFavorites = function(response) {
+        // reponseをhogehogeする
+	  let jsonstring = json_stringify(response);
+	  document.getElementById("json").innerHTML = jsonstring;
+    };
+    document.body.appendChild(script);
+    }
 </script>
 <body>
-<input type="text" id="url" size="90"><input type="button" onclick="get_json()" value="GET JSON">
+<input type="text" id="url" size="90"><input type="button" onclick="get_jsonp()" value="GET JSON">
 <p>
 <div id="json">
 JSONをここに表示します。
