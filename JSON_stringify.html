@@ -10,6 +10,7 @@ function json_stringify(jsondata){
 
 function get_json(){
 	var request = new XMLHttpRequest();
+	request.withCredentials = true;
 
 	// URLを開く
 	let URL = document.getElementById("url").value;
