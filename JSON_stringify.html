@@ -29,7 +29,7 @@ function get_json(){
 function get_jsonp(){
     var script = document.createElement('script');
     script.src = document.getElementById("url").value;document.getElementById("url").value;
-    window.instaCallbackFavorites = function(response) {
+    script.onload = function(response) {
         // reponseをhogehogeする
 	  let jsonstring = json_stringify(response);
 	  document.getElementById("json").innerHTML = jsonstring;
