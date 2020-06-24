@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>JSON整形</title>
+</head>
+<script>
+function json_stringify(jsondata){
+	var jsondata = {"fruit":"Apple","size":"Large","color":"Red"};
+	return JSON.stringify(jsondata, null, 4);
+}
+
+function get_json(){
+	var request = new XMLHttpRequest();
+
+	// URLを開く
+	let URL = document.getElementById("url").value;
+	request.open('GET', URL, true);
+
+	// レスポンスが返ってきた時の処理を記述 
+	request.onload = function () {
+	  // レスポンスが返ってきた時の処理
+	  let jsonstring = json_stringify(this.response);
+	  document.getElementById("json").innerHTML = jsonstring;
+	}
+
+	// リクエストをURLに送信
+	request.send();
+}
+
+</script>
+<body>
+<input type="text" id="url" size="90"><input type="button" onclick="get_json()" value="GET JSON">
+<p>
+<div id="json">
+JSONをここに表示します。
+</div>
+</body>
+</html>

@@ -46,7 +46,7 @@
       "parent": "#gadjet_template_003",
       "text_on": true,
       "text": "nodelist取得",
-      "onclick": "v3.write_nodeList('gadjet_template_dom', v3.get_canvas('target_site'))"
+      "onclick": "v3.write_nodeList('gadjet_template_dom', v3.get_canvas('target_site', 'cv'))"
     },{
       "note": "target site DOM",
       "id": "target_site_controlle_url_input",

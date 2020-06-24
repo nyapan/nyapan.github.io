@@ -476,7 +476,8 @@ export class V3Core extends V3Property {
 
   get_canvas(target_window_id, target_canvas_id){
     let target_element = document.getElementById(target_window_id);
-    this.target_canvas = target_element.contentWindow.document.getElementById(target_canvas_id);
-    return this.target_canvas.getContext("2d");
+//    this.target_canvas = target_element.contentWindow.document.getElementById(target_canvas_id);
+      let cv = target_element.contentWindow.document.querySelector('#cv');
+      return cv.getContext("2d");
   }
 }
