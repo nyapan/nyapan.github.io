@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>JSON®Œ`</title>
+<title>JSONæ•´å½¢</title>
 </head>
 <script>
 function json_stringify(jsondata){
@@ -11,18 +11,18 @@ function json_stringify(jsondata){
 function get_json(){
 	var request = new XMLHttpRequest();
 
-	// URL‚ğŠJ‚­
+	// URLã‚’é–‹ã
 	let URL = document.getElementById("url").value;
 	request.open('GET', URL, true);
 
-	// ƒŒƒXƒ|ƒ“ƒX‚ª•Ô‚Á‚Ä‚«‚½‚Ìˆ—‚ğ‹Lq 
+	// ãƒ¬ã‚¹ãƒãƒ³ã‚¹ãŒè¿”ã£ã¦ããŸæ™‚ã®å‡¦ç†ã‚’è¨˜è¿° 
 	request.onload = function () {
-	  // ƒŒƒXƒ|ƒ“ƒX‚ª•Ô‚Á‚Ä‚«‚½‚Ìˆ—
+	  // ãƒ¬ã‚¹ãƒãƒ³ã‚¹ãŒè¿”ã£ã¦ããŸæ™‚ã®å‡¦ç†
 	  let jsonstring = json_stringify(this.response);
 	  document.getElementById("json").innerHTML = jsonstring;
 	}
 
-	// ƒŠƒNƒGƒXƒg‚ğURL‚É‘—M
+	// ãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚’URLã«é€ä¿¡
 	request.send();
 }
 
@@ -31,7 +31,7 @@ function get_json(){
 <input type="text" id="url" size="90"><input type="button" onclick="get_json()" value="GET JSON">
 <p>
 <div id="json">
-JSON‚ğ‚±‚±‚É•\¦‚µ‚Ü‚·B
+JSONã‚’ã“ã“ã«è¡¨ç¤ºã—ã¾ã™ã€‚
 </div>
 </body>
 </html>
